@@ -113,6 +113,14 @@ header.masthead .masthead-heading {
   }
 }
 
+.gig-list p {
+  margin: 0;
+}
+
+.gig-list {
+  padding: 0;
+}
+
 /* * {
     border: 1px solid red;
 } */
