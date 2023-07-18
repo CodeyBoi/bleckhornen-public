@@ -1,0 +1,173 @@
+[
+  {
+    "result": {
+      "data": {
+        "json": {
+          "id": "cld099pna01uxzhvdgs1u95oc",
+          "number": 516,
+          "bNumber": null,
+          "firstName": "Hannes",
+          "lastName": "Ryberg",
+          "isActive": true,
+          "userId": "cld099pna01uwzhvd80n06qii",
+          "roleId": 1,
+          "createdAt": "2023-01-17T13:13:06.580Z",
+          "updatedAt": "2023-03-17T22:39:09.352Z",
+          "instruments": [
+            {
+              "corpsId": "cld099pna01uxzhvdgs1u95oc",
+              "instrumentId": 16,
+              "isMainInstrument": true,
+              "instrument": { "id": 16, "name": "Slagverk" }
+            }
+          ],
+          "user": { "email": "hannes.ryberg00@gmail.com" },
+          "role": { "name": "admin" },
+          "foodPrefs": {
+            "corpsId": "cld099pna01uxzhvdgs1u95oc",
+            "vegetarian": false,
+            "vegan": false,
+            "glutenFree": false,
+            "lactoseFree": false,
+            "drinksAlcohol": true,
+            "other": ""
+          }
+        },
+        "meta": { "values": { "createdAt": ["Date"], "updatedAt": ["Date"] } }
+      }
+    }
+  },
+  {
+    "result": {
+      "data": {
+        "json": [
+          {
+            "id": "clk8g20c00028qhk7eydadsvb",
+            "title": "Städning efter sommarcorps",
+            "date": "2023-07-18T00:00:00.000Z",
+            "meetup": "17:00",
+            "start": "",
+            "location": "Tarmen",
+            "signupStart": null,
+            "signupEnd": null,
+            "description": "Dags att städa efter sommarcorps. Skam på den som inte kommer!",
+            "typeId": 7,
+            "points": 0,
+            "countsPositively": false,
+            "isPublic": false,
+            "checkbox1": "",
+            "checkbox2": "",
+            "createdAt": "2023-07-18T15:23:09.744Z",
+            "updatedAt": "2023-07-18T15:31:35.534Z",
+            "type": { "name": "Fest!" },
+            "hiddenFor": []
+          },
+          {
+            "id": "cljx7any60005qhk76sxjv83u",
+            "title": "EGOI-partyspelning",
+            "date": "2023-07-20T00:00:00.000Z",
+            "meetup": "20.15",
+            "start": "21.00",
+            "location": "Borgen",
+            "signupStart": null,
+            "signupEnd": null,
+            "description": "Tagg!!",
+            "typeId": 4,
+            "points": 1,
+            "countsPositively": true,
+            "isPublic": false,
+            "checkbox1": "",
+            "checkbox2": "",
+            "createdAt": "2023-07-10T18:32:29.119Z",
+            "updatedAt": "2023-07-10T18:32:29.119Z",
+            "type": { "name": "Party-marsch-spelning!" },
+            "hiddenFor": []
+          },
+          {
+            "id": "clhemlte60071qht8gm5e6nac",
+            "title": "VM i Voltige ",
+            "date": "2023-07-27T00:00:00.000Z",
+            "meetup": "17.15",
+            "start": "18.00",
+            "location": "Lundagård",
+            "signupStart": null,
+            "signupEnd": null,
+            "description": "Världens främsta voltigörer behöver peppning för att kunna volta på hästrygg! Då kallar man såklart in ett gäng man kan lita på, vårat gäng – AMC Bleckhornen!",
+            "typeId": 3,
+            "points": 1,
+            "countsPositively": false,
+            "isPublic": false,
+            "checkbox1": "",
+            "checkbox2": "",
+            "createdAt": "2023-05-08T09:14:01.615Z",
+            "updatedAt": "2023-05-08T09:14:01.615Z",
+            "type": { "name": "Marschspelning!" },
+            "hiddenFor": []
+          },
+          {
+            "id": "clibipu7t00cuqht8cq0u3tak",
+            "title": "80-årsfest",
+            "date": "2023-07-29T00:00:00.000Z",
+            "meetup": "14.30",
+            "start": "16.00",
+            "location": "Trädgårdsvägen 26 (Bjärred)",
+            "signupStart": null,
+            "signupEnd": null,
+            "description": "80 år gammal? Då är man ju nästan lika gammal som corpset!",
+            "typeId": 3,
+            "points": 1,
+            "countsPositively": true,
+            "isPublic": false,
+            "checkbox1": "",
+            "checkbox2": "",
+            "createdAt": "2023-05-31T09:41:34.650Z",
+            "updatedAt": "2023-05-31T09:41:34.650Z",
+            "type": { "name": "Marschspelning!" },
+            "hiddenFor": []
+          },
+          {
+            "id": "clezje0al001fqhpiayieugax",
+            "title": "Kursstartsspelning för MedFak",
+            "date": "2023-08-24T00:00:00.000Z",
+            "meetup": "11.15",
+            "start": "12.30",
+            "location": "Forum Medicum",
+            "signupStart": null,
+            "signupEnd": null,
+            "description": "De nya studenterna på Fysioterapeutprogrammet, Arbetsterapeutprogrammet, Sjuksöterskeprogrammet och Röntgensjuksköterskeprogrammet behöver ett sensommarvarmt välkomnande till Sveriges bästa studentstad!",
+            "typeId": 2,
+            "points": 1,
+            "countsPositively": false,
+            "isPublic": false,
+            "checkbox1": "",
+            "checkbox2": "",
+            "createdAt": "2023-03-08T10:28:01.150Z",
+            "updatedAt": "2023-03-08T10:28:01.150Z",
+            "type": { "name": "Pärmspelning!" },
+            "hiddenFor": []
+          }
+        ],
+        "meta": {
+          "values": {
+            "0.date": ["Date"],
+            "0.createdAt": ["Date"],
+            "0.updatedAt": ["Date"],
+            "1.date": ["Date"],
+            "1.createdAt": ["Date"],
+            "1.updatedAt": ["Date"],
+            "2.date": ["Date"],
+            "2.createdAt": ["Date"],
+            "2.updatedAt": ["Date"],
+            "3.date": ["Date"],
+            "3.createdAt": ["Date"],
+            "3.updatedAt": ["Date"],
+            "4.date": ["Date"],
+            "4.createdAt": ["Date"],
+            "4.updatedAt": ["Date"]
+          }
+        }
+      }
+    }
+  },
+  { "result": { "data": { "json": { "success": true } } } }
+]

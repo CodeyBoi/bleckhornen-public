@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AMC Bleckhornen</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz"
+    crossorigin="anonymous"></script>
+  <script src="script.js"></script>
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body onload="fetchGigs()">
+  <!-- Navbar element -->
+  <nav class="navbar navbar-expand-lg navbar-dark">
+    <a class="navbar-brand">AMC Bleckhornen</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarContent"
+      aria-expanded="false" aria-label="Expandera navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarContent">
+      <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+
+        <!-- Navbar items -->
+        <li class="nav-item active">
+          <a href="start.html" class="nav-link">Start</a>
+        </li>
+        <li class="nav-item"><a href="boka.html" class="nav-link">Boka oss</a></li>
+        <li class="nav-item">
+          <a href="join.html" class="nav-link">Gå med</a>
+        </li>
+      </ul>
+    </div>
+  </nav>
+
+  <div class="jumbotron text-center">
+    <p>Lunds bästa och äldsta studentorkester!</p>
+  </div>
+
+  <div class="container">
+    <div class="row">
+      <div class="col-md-6">
+        <h2>About Us</h2>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer auctor leo at tempor tempor. Duis vehicula, nisi id pellentesque finibus, felis sapien dictum tellus, nec tristique dui lectus at risus. Donec at magna purus. Integer mollis lectus id suscipit varius.</p>
+      </div>
+      <div class="col-md-6">
+        <h2>Upcoming Events</h2>
+        <p>Stay tuned for our upcoming events and performances!</p>
+        <ul class="gig-list" id="gig-list">
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <footer class="text-center">
+    <p>&copy; 2023 Student Orchestra. All rights reserved.</p>
+  </footer>
+
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+
+</html>
