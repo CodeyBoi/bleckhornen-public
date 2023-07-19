@@ -38,10 +38,10 @@ h1 {
   margin-bottom: 20px;
 }
 
-p {
-  font-size: 18px;
-  margin-bottom: 20px;
-}
+/* p { */
+  /* font-size: 18px; */
+  /* margin-bottom: 20px; */
+/* } */
 
 .no-padding {
   padding: 0 !important;
@@ -113,11 +113,12 @@ header.masthead .masthead-heading {
 }
 
 .gig-list p {
-  margin: 0;
+  margin-bottom: 0;
 }
 
 .gig-list {
   padding: 0;
+  max-width: 1000px;
 }
 
 /* * {
