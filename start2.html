@@ -10,8 +10,8 @@
       name="description"
       content="Lunds äldsta och bästa studentorkester!"
     />
-    <meta name="author" content="" />
-    <title>AMC Bleckhornen</title>
+    <meta name="author" content="ITK" />
+    <title>Bleckhornen</title>
     <!-- Favicon-->
     <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
     <!-- Font Awesome icons (free version)-->
@@ -32,7 +32,7 @@
     <link href="style.css" rel="stylesheet" />
   </head>
 
-  <body id="page-top" onload="fetchGigs()">
+  <body id="page-top" onload="fetchData()">
     <!-- Navigation-->
     <nav class="navbar navbar-expand-lg navbar-dark fixed-top" id="mainNav">
       <div class="container">
@@ -54,7 +54,7 @@
         <div class="collapse navbar-collapse" id="navbarResponsive">
           <ul class="navbar-nav text-uppercase ms-auto py-4 py-lg-0">
             <li class="nav-item">
-              <a class="nav-link" href="#join-us">Gå med</a>
+              <a class="nav-link" href="#join">Gå med</a>
             </li>
             <li class="nav-item">
               <a class="nav-link" href="#book-us">Boka oss</a>
@@ -66,8 +66,9 @@
         </div>
       </div>
     </nav>
+
     <!-- Masthead-->
-    <header class="masthead">
+    <header class="masthead mb-4">
       <div class="container">
         <div class="masthead-subheading">
           Lunds bästa och äldsta studentorkester!
@@ -75,14 +76,26 @@
         <div class="masthead-heading text-uppercase">
           <div class="logo">BLECKHORNEN</div>
         </div>
-        <a class="btn btn-primary btn-xl text-uppercase" href="#services"
-          >Tell Me More</a
-        >
       </div>
     </header>
 
+    <!-- Public gigs-->
+    <section class="page-section" id="about">
+      <div class="container">
+        <div class="text-center">
+          <h2 class="section-heading text-uppercase">Spelningar</h2>
+          <h3 class="section-subheading text-muted">
+            Här kan du se var vi spelar härnäst!
+          </h3>
+        </div>
+        <ul class="gig-list container justify-content-center" id="gig-list">
+          <!-- Gigs will be listed here -->
+        </ul>
+      </div>
+    </section>
+
     <!-- Services-->
-    <section class="page-section" id="join-us">
+    <section class="page-section" id="join">
       <div class="container">
         <div class="text-center">
           <h2 class="section-heading text-uppercase">Services</h2>
@@ -131,173 +144,43 @@
       </div>
     </section>
 
-    <!-- About-->
-    <section class="page-section" id="about">
+    <!-- Join form -->
+    <section class="page-section" id="join">
       <div class="container">
         <div class="text-center">
-          <h2 class="section-heading text-uppercase">Spelningar</h2>
+          <h2 class="section-heading text-uppercase">Gå med</h2>
           <h3 class="section-subheading text-muted">
-            Här kan du se var vi spelar härnäst!
+            Är du intresserad av att gå med kan du fylla i formuläret nedan!
           </h3>
         </div>
-        <ul class="gig-list container justify-content-center" id="gig-list">
-          <!-- Gigs will be listed here -->
-        </ul>
-      </div>
-    </section>
+        
+        <form>
+          <div class="form-group">
+            <label for="name">Namn</label>
+            <input
+              type="text"
+              class="form-control"
+              id="name"
+              placeholder="Namn"
+            />
+          </div>
+          <div class="form-group">
+            <label for="email">E-post</label>
+            <input
+              type="email"
+              class="form-control"
+              id="email"
+              placeholder="E-post"
+            />
+          </div>
+          <div class="form-group">
+            <label for="section">Instrument</label>
+            <select class="form-control" id="section">
+              <option selected disabled hidden>Välj instrument...</option>
+              <!-- Instruments are added via JS -->
+            </select>
+          </form>
 
-    <!-- Team-->
-    <section class="page-section bg-light" id="team">
-      <div class="container">
-        <div class="text-center">
-          <h2 class="section-heading text-uppercase">Our Amazing Team</h2>
-          <h3 class="section-subheading text-muted">
-            Lorem ipsum dolor sit amet consectetur.
-          </h3>
-        </div>
-        <div class="row">
-          <div class="col-lg-4">
-            <div class="team-member">
-              <img
-                class="mx-auto rounded-circle"
-                src="assets/img/team/1.jpg"
-                alt="..."
-              />
-              <h4>Parveen Anand</h4>
-              <p class="text-muted">Lead Designer</p>
-              <a
-                class="btn btn-dark btn-social mx-2"
-                href="#!"
-                aria-label="Parveen Anand Twitter Profile"
-                ><i class="fab fa-twitter"></i
-              ></a>
-              <a
-                class="btn btn-dark btn-social mx-2"
-                href="#!"
-                aria-label="Parveen Anand Facebook Profile"
-                ><i class="fab fa-facebook-f"></i
-              ></a>
-              <a
-                class="btn btn-dark btn-social mx-2"
-                href="#!"
-                aria-label="Parveen Anand LinkedIn Profile"
-                ><i class="fab fa-linkedin-in"></i
-              ></a>
-            </div>
-          </div>
-          <div class="col-lg-4">
-            <div class="team-member">
-              <img
-                class="mx-auto rounded-circle"
-                src="assets/img/team/2.jpg"
-                alt="..."
-              />
-              <h4>Diana Petersen</h4>
-              <p class="text-muted">Lead Marketer</p>
-              <a
-                class="btn btn-dark btn-social mx-2"
-                href="#!"
-                aria-label="Diana Petersen Twitter Profile"
-                ><i class="fab fa-twitter"></i
-              ></a>
-              <a
-                class="btn btn-dark btn-social mx-2"
-                href="#!"
-                aria-label="Diana Petersen Facebook Profile"
-                ><i class="fab fa-facebook-f"></i
-              ></a>
-              <a
-                class="btn btn-dark btn-social mx-2"
-                href="#!"
-                aria-label="Diana Petersen LinkedIn Profile"
-                ><i class="fab fa-linkedin-in"></i
-              ></a>
-            </div>
-          </div>
-          <div class="col-lg-4">
-            <div class="team-member">
-              <img
-                class="mx-auto rounded-circle"
-                src="assets/img/team/3.jpg"
-                alt="..."
-              />
-              <h4>Larry Parker</h4>
-              <p class="text-muted">Lead Developer</p>
-              <a
-                class="btn btn-dark btn-social mx-2"
-                href="#!"
-                aria-label="Larry Parker Twitter Profile"
-                ><i class="fab fa-twitter"></i
-              ></a>
-              <a
-                class="btn btn-dark btn-social mx-2"
-                href="#!"
-                aria-label="Larry Parker Facebook Profile"
-                ><i class="fab fa-facebook-f"></i
-              ></a>
-              <a
-                class="btn btn-dark btn-social mx-2"
-                href="#!"
-                aria-label="Larry Parker LinkedIn Profile"
-                ><i class="fab fa-linkedin-in"></i
-              ></a>
-            </div>
-          </div>
-        </div>
-        <div class="row">
-          <div class="col-lg-8 mx-auto text-center">
-            <p class="large text-muted">
-              Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aut
-              eaque, laboriosam veritatis, quos non quis ad perspiciatis, totam
-              corporis ea, alias ut unde.
-            </p>
-          </div>
-        </div>
-      </div>
-    </section>
-    <!-- Clients-->
-    <div class="py-5">
-      <div class="container">
-        <div class="row align-items-center">
-          <div class="col-md-3 col-sm-6 my-3">
-            <a href="#!"
-              ><img
-                class="img-fluid img-brand d-block mx-auto"
-                src="assets/img/logos/microsoft.svg"
-                alt="..."
-                aria-label="Microsoft Logo"
-            /></a>
-          </div>
-          <div class="col-md-3 col-sm-6 my-3">
-            <a href="#!"
-              ><img
-                class="img-fluid img-brand d-block mx-auto"
-                src="assets/img/logos/google.svg"
-                alt="..."
-                aria-label="Google Logo"
-            /></a>
-          </div>
-          <div class="col-md-3 col-sm-6 my-3">
-            <a href="#!"
-              ><img
-                class="img-fluid img-brand d-block mx-auto"
-                src="assets/img/logos/facebook.svg"
-                alt="..."
-                aria-label="Facebook Logo"
-            /></a>
-          </div>
-          <div class="col-md-3 col-sm-6 my-3">
-            <a href="#!"
-              ><img
-                class="img-fluid img-brand d-block mx-auto"
-                src="assets/img/logos/ibm.svg"
-                alt="..."
-                aria-label="IBM Logo"
-            /></a>
-          </div>
-        </div>
-      </div>
-    </div>
     <!-- Contact-->
     <section class="page-section" id="contact">
       <div class="container">

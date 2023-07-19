@@ -65,11 +65,11 @@ footer {
 
 header.masthead {
   background-color: var(--corps-red);
-  padding-top: 10.5rem;
-  padding-bottom: 6rem;
+  padding-top: 6.5rem;
+  padding-bottom: 20rem;
   text-align: center;
   color: #fff;
-  background-image: url("../assets/img/header-bg.jpg");
+  background-image: url("assets/img/rrqmVauU.jpg");
   background-repeat: no-repeat;
   background-attachment: scroll;
   background-position: center center;
@@ -96,8 +96,8 @@ header.masthead .masthead-heading {
 
 @media (min-width: 768px) {
   header.masthead {
-    padding-top: 17rem;
-    padding-bottom: 12.5rem;
+    /* padding-top: 17rem; */
+    padding-bottom: 28rem;
   }
   header.masthead .masthead-subheading {
     font-size: 2rem;
