@@ -139,8 +139,12 @@ header.masthead .masthead-heading {
   color: var(--corps-red);
 }
 
-.btn-social:hover {
+.btn-social:hover, .btn-social:active, .btn-social:focus {
   background-color: var(--corps-red);
+  color: var(--corps-white);
+}
+
+.mail-link, .mail-link:hover {
   color: var(--corps-white);
 }
 
