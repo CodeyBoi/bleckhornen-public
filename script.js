@@ -1,6 +1,5 @@
 const fetchData = async () => {
-  await fetchGigs();
-  await fetchInstruments();
+  await Promise.all([fetchGigs(), fetchInstruments()]);
 };
 
 const fetchGigs = async () => {

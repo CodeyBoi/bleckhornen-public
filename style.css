@@ -15,6 +15,7 @@
 
 :root {
   --corps-red: #ce0c00;
+  --corps-white: #fff;
 }
 
 body {
@@ -119,6 +120,28 @@ header.masthead .masthead-heading {
 .gig-list {
   padding: 0;
   max-width: 1000px;
+}
+
+.anchor {
+  display: block;
+  position: relative;
+  top: -100px;
+  visibility: hidden;
+}
+
+.fab {
+  color: var(--corps-red);
+}
+
+.btn-social {
+  border: 0;
+  background-color: var(--corps-white);
+  color: var(--corps-red);
+}
+
+.btn-social:hover {
+  background-color: var(--corps-red);
+  color: var(--corps-white);
 }
 
 /* * {
