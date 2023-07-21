@@ -31,9 +31,176 @@
     <link href="style.css" rel="stylesheet" />
   </head>
 
+  <!-- Join form modal -->
+  <div class="modal fade" id="joinFormModal" tabindex="-1" role="form">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h2 class="section-heading text-uppercase m-auto">Gå med</h2>
+        </div>
+        <div class="modal-content p-4">
+          <h5 class="section-subheading text-muted">
+            Vad kul att du vill vara med i Bleckhornen! Fyll i formuläret nedan
+            så återkommer vi så snart vi kan!
+          </h5>
+          <form id="joinForm">
+            <div class="form-group">
+              <!-- <label for="name">Namn</label> -->
+              <input
+                type="text"
+                class="form-control"
+                id="joinName"
+                placeholder="Ditt namn *"
+              />
+            </div>
+            <div class="form-group">
+              <!-- <label for="email">E-post</label> -->
+              <input
+                type="email"
+                class="form-control"
+                id="joinEmail"
+                placeholder="Din e-mailadress *"
+              />
+            </div>
+            <div class="form-group">
+              <!-- <label for="section">Instrument</label> -->
+              <select class="form-control" id="section">
+                <option selected disabled hidden>
+                  Vilken sektion är du intresserad av? *
+                </option>
+                <!-- Instruments are added via JS -->
+              </select>
+            </div>
+            <div class="form-group">
+              <textarea
+                class="form-control"
+                id="joinMessage"
+                rows="3"
+                placeholder="Berätta lite kort om dig själv. Vad har du spelat/dansat i innan?"
+              ></textarea>
+            </div>
+            <div class="d-flex justify-content-start">
+              <button type="submit" class="btn btn-primary mr-3">Skicka</button>
+              <button
+                type="button"
+                class="btn btn-secondary"
+                data-bs-dismiss="modal"
+              >
+                Avbryt
+              </button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Book form modal -->
+  <div class="modal fade" id="bookFormModal" tabindex="-1" role="form">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h2 class="section-heading text-uppercase m-auto">Boka oss</h2>
+        </div>
+        <div class="modal-content p-4">
+          <h5 class="section-subheading text-muted">
+            Här kan du boka Bleckhornen eller bara göra en intresseförfrågan. Vi återkommer så snart vi kan!
+          </h5>
+          <form id="bookForm">
+            <div class="form-group">
+              <input
+                type="text"
+                class="form-control"
+                id="bookDate"
+                placeholder="Datum *"
+              />
+            </div>
+            <div class="form-group">
+              <input
+                type="text"
+                class="form-control"
+                id="bookTime"
+                placeholder="Tid *"
+              />
+            </div>
+            <div class="form-group">
+              <input
+                type="text"
+                class="form-control"
+                id="bookLocation"
+                placeholder="Plats *"
+              />
+            </div>
+            <div class="form-group">
+              <input
+                type="text"
+                class="form-control"
+                id="bookEvent"
+                placeholder="Evenemang"
+              />
+            </div>
+            <div class="form-group">
+              <textarea
+                class="form-control"
+                id="bookOtherInfo"
+                placeholder="Övrigt..."
+                rows="3"
+              ></textarea>
+            </div>
+
+            <h5 class="section-subheading text-muted">Kontaktuppgifter</h5>
+            <div class="form-group">
+              <input
+                type="text"
+                class="form-control"
+                id="bookName"
+                placeholder="Namn *"
+              />
+            </div>
+            <div class="form-group">
+              <input
+                type="email"
+                class="form-control"
+                id="bookEmail"
+                placeholder="E-mail *"
+              />
+            </div>
+            <div class="form-group">
+              <input
+                type="tel"
+                class="form-control"
+                id="bookPhone"
+                placeholder="Telefonnummer"
+              />
+            </div>
+            <div class="form-group">
+              <input
+                type="text"
+                class="form-control"
+                id="bookAddress"
+                placeholder="Adress"
+              />
+            </div>
+
+            <div class="d-flex justify-content-start">
+              <button type="submit" class="btn btn-primary mr-3">Skicka</button>
+              <button
+                type="button"
+                class="btn btn-secondary"
+                data-bs-dismiss="modal"
+              >
+                Avbryt
+              </button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+
   <body id="page-top" onload="fetchData()">
     <!-- Navigation-->
-    <nav class="navbar navbar-expand-md navbar-dark fixed-top" id="mainNav">
+    <!-- <nav class="navbar navbar-expand-md navbar-dark fixed-top" id="mainNav">
       <div class="container">
         <a class="navbar-brand" href="#page-top"
           ><img src="assets/favicon.ico" alt="Bleckhornen"
@@ -63,6 +230,20 @@
           </ul>
         </div>
       </div>
+    </nav> -->
+
+    <nav class="navbar navbar-dark fixed-top" id="mainNav">
+      <div class="container">
+        <a class="navbar-brand" href="#page-top"
+          ><img src="assets/favicon.ico" alt="Bleckhornen"
+        /></a>
+        <div class="d-flex justify-content-end">
+          <ul class="navbar-nav text-uppercase ms-auto py-4 py-lg-0">
+            <li class="nav-item">
+              <a class="nav-link" href="https://appendix.bleckhornen.org">Blindtarmen</a>
+            </li>
+        </div>
+      </div>
     </nav>
 
     <!-- Masthead-->
@@ -73,6 +254,24 @@
         </div>
         <div class="masthead-heading text-uppercase">
           <div class="logo">BLECKHORNEN</div>
+        </div>
+        <div class="d-flex justify-content-around">
+          <button
+            type="button"
+            class="btn-lg btn-primary"
+            data-bs-toggle="modal"
+            data-bs-target="#joinFormModal"
+          >
+            Gå med
+          </button>
+          <button
+            type="button"
+            class="btn-lg btn-primary"
+            data-bs-toggle="modal"
+            data-bs-target="#bookFormModal"
+          >
+            Boka oss
+          </button>
         </div>
       </div>
     </header>
@@ -143,90 +342,6 @@
       </div>
     </section> -->
 
-    <!-- Forms -->
-    <a class="anchor" id="join"></a>
-    <section class="page-section mb-4">
-      <div class="container">
-        <div class="row">
-          <div class="col-md-6 col-12">
-            <div class="text-center">
-              <h2 class="section-heading text-uppercase">Gå med</h2>
-              <h3 class="section-subheading text-muted">
-                Är du intresserad av att gå med kan du fylla i formuläret nedan!
-              </h3>
-            </div>
-            <form id="joinForm">
-              <div class="form-group">
-                <!-- <label for="name">Namn</label> -->
-                <input
-                  type="text"
-                  class="form-control"
-                  id="name"
-                  placeholder="Ditt namn *"
-                />
-              </div>
-              <div class="form-group">
-                <!-- <label for="email">E-post</label> -->
-                <input
-                  type="email"
-                  class="form-control"
-                  id="email"
-                  placeholder="Din e-mailadress *"
-                />
-              </div>
-              <div class="form-group">
-                <!-- <label for="section">Instrument</label> -->
-                <select class="form-control" id="section">
-                  <option selected disabled hidden>
-                    Instrument...
-                  </option>
-                  <!-- Instruments are added via JS -->
-                </select>
-              </div>
-            </form>
-          </div>
-          <div class="col-md-6 col-12">
-            <div class="text-center">
-              <h2 class="section-heading text-uppercase">Boka oss</h2>
-              <h3 class="section-subheading text-muted">
-                Är du intresserad av att boka oss kan du fylla i formuläret
-                nedan!
-              </h3>
-            </div>
-            <form id="bookForm">
-              <div class="form-group">
-                <!-- <label for="name">Namn</label> -->
-                <input
-                  type="text"
-                  class="form-control"
-                  id="name"
-                  placeholder="Ditt namn *"
-                />
-              </div>
-              <div class="form-group">
-                <!-- <label for="email">E-post</label> -->
-                <input
-                  type="email"
-                  class="form-control"
-                  id="email"
-                  placeholder="Din e-mailadress *"
-                />
-              </div>
-              <div class="form-group">
-                <!-- <label for="section">Instrument</label> -->
-                <select class="form-control" id="section">
-                  <option selected disabled hidden>
-                    Välj ditt instrument...
-                  </option>
-                  <!-- Instruments are added via JS -->
-                </select>
-              </div>
-            </form>
-          </div>
-        </div>
-      </div>
-    </section>
-
     <!-- Footer-->
     <footer class="footer py-4">
       <div class="container">
@@ -241,9 +356,8 @@
               href="mailto:info@bleckhornen.org"
               target="_blank"
             >
-              info@bleckhornen.org </a
-            ><br />
-            0700-934493<br />
+              info@bleckhornen.org
+            </a>
           </div>
           <div>
             <a
@@ -264,13 +378,6 @@
         </div>
       </div>
     </footer>
-    <!-- Bootstrap core JS-->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
-    <!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *-->
-    <!-- * *                               SB Forms JS                               * *-->
-    <!-- * * Activate your form at https://startbootstrap.com/solution/contact-forms * *-->
-    <!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *-->
-    <script src="https://cdn.startbootstrap.com/sb-forms-latest.js"></script>
     <script src="script.js"></script>
   </body>
 </html>

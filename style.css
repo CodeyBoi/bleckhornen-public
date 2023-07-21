@@ -148,6 +148,27 @@ header.masthead .masthead-heading {
   color: var(--corps-white);
 }
 
+.btn-primary, .btn-primary:focus {
+  color: var(--corps-white);
+  background-color: var(--corps-red);
+  border-color: var(--corps-red);
+  transition: .15s all ease-in-out;
+}
+
+.btn-primary:hover, .btn-primary:active {
+  color: var(--corps-red);
+  background-color: var(--corps-white);
+  border-color: var(--corps-white);
+}
+
+h2 {
+  color: var(--corps-red);
+}
+
+h3 {
+  color: var(--corps-red);
+}
+
 /* * {
     border: 1px solid red;
 } */
