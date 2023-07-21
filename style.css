@@ -139,23 +139,28 @@ header.masthead .masthead-heading {
   color: var(--corps-red);
 }
 
-.btn-social:hover, .btn-social:active, .btn-social:focus {
+.btn-social:hover,
+.btn-social:active,
+.btn-social:focus {
   background-color: var(--corps-red);
   color: var(--corps-white);
 }
 
-.mail-link, .mail-link:hover {
+.mail-link,
+.mail-link:hover {
   color: var(--corps-white);
 }
 
-.btn-primary, .btn-primary:focus {
+.btn-primary,
+.btn-primary:focus {
   color: var(--corps-white);
   background-color: var(--corps-red);
   border-color: var(--corps-red);
-  transition: .15s all ease-in-out;
+  transition: 0.15s all ease-in-out;
 }
 
-.btn-primary:hover, .btn-primary:active {
+.btn-primary:hover,
+.btn-primary:active {
   color: var(--corps-red);
   background-color: var(--corps-white);
   border-color: var(--corps-white);

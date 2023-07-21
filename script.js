@@ -76,3 +76,38 @@ const fetchInstruments = async () => {
     instrumentsElement.appendChild(instrumentElement);
   }
 };
+
+const handleJoinSubmit = async (event) => {
+  const apiUrl = "https://staging.bleckhornen.org/api/trpc/application.create";
+  event.preventDefault();
+  const joinForm = event.currentTarget;
+  console.log(joinForm);
+  const formData = new FormData(joinForm);
+
+  for (const [key, value] of formData.entries()) {
+    console.log(`${key}: ${value}`);
+  }
+
+  // const data = {
+  //   name: formData.get("joinName"),
+  //   email: formData.get("joinEmail"),
+  //   instrument: formData.get("joinInstrument"),
+  //   description: formData.get("joinMessage"),
+  // };
+  console.log(formData);
+  return;
+
+  await fetch(apiUrl, {
+    method: "POST",
+    body: JSON.stringify(data),
+  })
+    .then((res) => res.json())
+    .then((data) => {
+      if (data.error) {
+        throw new Error(data.error.message);
+      }
+      joinForm.innerHTML = `<p class="text-success">Tack för din ansökan!</p>`;
+    });
+};
+const joinForm = document.getElementById("joinForm");
+joinForm.addEventListener("submit", handleJoinSubmit);
