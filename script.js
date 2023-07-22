@@ -2,8 +2,10 @@ const fetchData = async () => {
   await Promise.all([fetchGigs(), fetchInstruments()]);
 };
 
+const BASE_API_URL = "https://appendix.bleckhornen.org/api/trpc";
+
 const fetchGigs = async () => {
-  const gigUrlTemplate = `https://appendix.bleckhornen.org/api/trpc/gig.getMany?input=%7B%22json%22%3A%7B%22startDate%22%3A%22<DATEGOESHERE>T00%3A00%3A00.000Z%22%7D%2C%22meta%22%3A%7B%22values%22%3A%7B%22startDate%22%3A%5B%22Date%22%5D%7D%7D%7D`;
+  const gigUrlTemplate = `${BASE_API_URL}/gig.getMany?input=%7B%22json%22%3A%7B%22startDate%22%3A%22<DATEGOESHERE>T00%3A00%3A00.000Z%22%7D%2C%22meta%22%3A%7B%22values%22%3A%7B%22startDate%22%3A%5B%22Date%22%5D%7D%7D%7D`;
   const now = new Date();
   const gigUrl = gigUrlTemplate.replace(
     "<DATEGOESHERE>",
@@ -51,14 +53,14 @@ const fetchGigs = async () => {
 
   if (gigs.length === 0) {
     const noGigsElement = document.createElement("i");
-    noGigsElement.innerHTML = "Inga spelningar inplanerade :(";
+    noGigsElement.innerHTML =
+      "Vi har tyvärr inga allmänna spelningar inplanerade för tillfället. Håll utkik här eller på vår Facebooksida för att se när vi spelar nästa gång!";
     gigListElement.appendChild(noGigsElement);
   }
 };
 
 const fetchInstruments = async () => {
-  const instrumentsUrl =
-    "https://appendix.bleckhornen.org/api/trpc/instrument.getAll";
+  const instrumentsUrl = `${BASE_API_URL}/instrument.getAll`;
   const remove = ["Annat", "Dirigent"];
   const instruments = await fetch(instrumentsUrl)
     .then((res) => res.json())
@@ -78,8 +80,7 @@ const fetchInstruments = async () => {
 };
 
 const handleJoinSubmit = async (event) => {
-  const apiUrl =
-    "https://staging.bleckhornen.org/api/trpc/mail.application?batch=1";
+  const apiUrl = `${BASE_API_URL}/mail.application?batch=1`;
   event.preventDefault();
   const joinForm = event.currentTarget;
   const formData = new FormData(joinForm);
@@ -108,8 +109,7 @@ const joinForm = document.getElementById("joinForm");
 joinForm.addEventListener("submit", handleJoinSubmit);
 
 const handleBookSubmit = async (event) => {
-  const apiUrl =
-    "https://staging.bleckhornen.org/api/trpc/mail.bookingRequest?batch=1";
+  const apiUrl = `${BASE_API_URL}/mail.bookingRequest?batch=1`;
   event.preventDefault();
   const bookForm = event.currentTarget;
   const formData = new FormData(bookForm);
