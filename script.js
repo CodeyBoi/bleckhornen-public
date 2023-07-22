@@ -68,7 +68,7 @@ const fetchInstruments = async () => {
         .sort((a, b) => a.name.localeCompare(b.name))
     );
 
-  const instrumentsElement = document.getElementById("section");
+  const instrumentsElement = document.getElementById("joinSection");
   for (const instrument of instruments) {
     const instrumentElement = document.createElement("option");
     instrumentElement.value = instrument.name;
@@ -78,36 +78,61 @@ const fetchInstruments = async () => {
 };
 
 const handleJoinSubmit = async (event) => {
-  const apiUrl = "https://staging.bleckhornen.org/api/trpc/application.create";
+  const apiUrl =
+    "https://staging.bleckhornen.org/api/trpc/mail.application?batch=1";
   event.preventDefault();
   const joinForm = event.currentTarget;
-  console.log(joinForm);
   const formData = new FormData(joinForm);
-
-  for (const [key, value] of formData.entries()) {
-    console.log(`${key}: ${value}`);
-  }
-
-  // const data = {
-  //   name: formData.get("joinName"),
-  //   email: formData.get("joinEmail"),
-  //   instrument: formData.get("joinInstrument"),
-  //   description: formData.get("joinMessage"),
-  // };
-  console.log(formData);
-  return;
-
+  const data = {
+    ...Object.fromEntries(formData.entries()),
+    emailTo: "info@bleckhornen.org",
+  };
+  const payload = {
+    0: {
+      json: data,
+    },
+  };
   await fetch(apiUrl, {
     method: "POST",
-    body: JSON.stringify(data),
+    body: JSON.stringify(payload),
   })
     .then((res) => res.json())
     .then((data) => {
       if (data.error) {
         throw new Error(data.error.message);
       }
-      joinForm.innerHTML = `<p class="text-success">Tack för din ansökan!</p>`;
+      joinForm.innerHTML = `<p class="text-success">Tack för din ansökan! Vi återkommer så snart vi kan!</p>`;
     });
 };
 const joinForm = document.getElementById("joinForm");
 joinForm.addEventListener("submit", handleJoinSubmit);
+
+const handleBookSubmit = async (event) => {
+  const apiUrl =
+    "https://staging.bleckhornen.org/api/trpc/mail.bookingRequest?batch=1";
+  event.preventDefault();
+  const bookForm = event.currentTarget;
+  const formData = new FormData(bookForm);
+  const data = {
+    ...Object.fromEntries(formData.entries()),
+    emailTo: "styrelsen@bleckhornen.org",
+  };
+  const payload = {
+    0: {
+      json: data,
+    },
+  };
+  await fetch(apiUrl, {
+    method: "POST",
+    body: JSON.stringify(payload),
+  })
+    .then((res) => res.json())
+    .then((data) => {
+      if (data.error) {
+        throw new Error(data.error.message);
+      }
+      bookForm.innerHTML = `<p class="text-success">Tack för din bokningsförfrågan! Vi återkommer så snart vi kan!</p>`;
+    });
+};
+const bookForm = document.getElementById("bookForm");
+bookForm.addEventListener("submit", handleBookSubmit);
