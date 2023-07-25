@@ -48,6 +48,10 @@ h1 {
   padding: 0 !important;
 }
 
+.no-margin {
+  margin: 0 !important;
+}
+
 .navbar,
 footer {
   color: white;
@@ -111,6 +115,9 @@ header.masthead .masthead-heading {
     line-height: 4.5rem;
     margin-bottom: 4rem;
   }
+  #footer {
+    flex-direction: row;
+  }
 }
 
 .gig-list p {
@@ -151,6 +158,14 @@ header.masthead .masthead-heading {
   color: var(--corps-white);
 }
 
+.mail-link {
+  text-decoration: none;
+}
+
+.mail-link:hover {
+  text-decoration: underline;
+}
+
 .btn-primary,
 .btn-primary:focus {
   color: var(--corps-white);
@@ -172,6 +187,21 @@ h2 {
 
 h3 {
   color: var(--corps-red);
+}
+
+#sections {
+  overflow-y: auto;
+  max-height: 240px;
+  user-select: none;
+}
+
+.nav-link {
+  cursor: pointer;
+  user-select: none;
+}
+
+#footer {
+  flex-direction: column;
 }
 
 /* * {

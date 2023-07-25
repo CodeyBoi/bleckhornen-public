@@ -20,80 +20,122 @@
       crossorigin="anonymous"
     ></script>
     <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
       rel="stylesheet"
-      href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
-    />
-    <script
-      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"
-      integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz"
+      integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM"
       crossorigin="anonymous"
-    ></script>
+    />
     <link href="style.css" rel="stylesheet" />
   </head>
 
   <!-- Join form modal -->
   <div class="modal fade" id="joinFormModal" tabindex="-1" role="form">
-    <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
       <div class="modal-content">
         <div class="modal-header">
-          <h2 class="section-heading text-uppercase m-auto">Gå med</h2>
+          <h2 class="section-heading text-uppercase no-margin lang-sv">
+            Gå med
+          </h2>
+          <h2 class="section-heading text-uppercase no-margin lang-en">
+            Join us
+          </h2>
+          <button
+            type="button"
+            class="btn-close"
+            data-bs-dismiss="modal"
+            aria-label="Stäng"
+          ></button>
         </div>
         <div class="modal-content p-4">
-          <h5 class="section-subheading text-muted">
-            Vad kul att du vill vara med i Bleckhornen! Var god fyll i
-            formuläret nedan.
+          <h5 class="section-subheading text-muted mb-3">
+            <span class="lang-sv"
+              >Vad kul att du vill vara med i Bleckhornen!</span
+            >
+            <span class="lang-en"
+              >How fun that you want to join Bleckhornen!</span
+            >
           </h5>
-          <form class="needs-validation" id="joinForm">
-            <div class="form-group">
-              <!-- <label for="name">Namn</label> -->
-              <input
-                type="text"
-                class="form-control"
-                name="name"
-                placeholder="Ditt namn *"
-                required
-              />
-            </div>
-            <div class="form-group">
-              <!-- <label for="email">E-post</label> -->
-              <input
-                type="email"
-                class="form-control"
-                name="email"
-                placeholder="Din e-mailadress *"
-                required
-              />
-            </div>
-            <div class="form-group">
-              <!-- <label for="section">Instrument</label> -->
-              <select
-                class="form-control"
-                id="joinSection"
-                name="instrument"
-                required
-              >
-                <option selected disabled hidden>
-                  Vilken sektion är du intresserad av? *
-                </option>
-                <!-- Instruments are added via JS -->
-              </select>
-            </div>
-            <div class="form-group">
-              <textarea
-                class="form-control"
-                name="description"
-                rows="3"
-                placeholder="Berätta lite kort om dig själv. Vad har du spelat/dansat i innan?"
-              ></textarea>
+          <form id="joinForm">
+            <div class="container">
+              <div class="row">
+                <div class="col-md-6 col-12">
+                  <h5 class="section-subheading">
+                    <span class="lang-sv">Berätta lite om dig själv</span>
+                    <span class="lang-en">Tell us a bit about yourself</span>
+                  </h5>
+                  <div class="form-floating mb-2">
+                    <input
+                      type="text"
+                      class="form-control"
+                      id="name"
+                      name="name"
+                      placeholder="Namn*"
+                      required
+                    />
+                    <label for="name">
+                      <span class="lang-sv">Namn*</span>
+                      <span class="lang-en">Name*</span>
+                    </label>
+                  </div>
+                  <div class="form-floating mb-2">
+                    <input
+                      type="email"
+                      class="form-control"
+                      id="email"
+                      name="email"
+                      placeholder="E-mail*"
+                      required
+                    />
+                    <label for="email">
+                      <span class="lang-sv">E-mail*</span>
+                      <span class="lang-en">E-mail*</span>
+                    </label>
+                  </div>
+                  <div class="form-floating mb-2">
+                    <textarea
+                      class="form-control"
+                      style="height: 100px"
+                      id="description"
+                      name="description"
+                      placeholder="Vad har du spelat/dansat i innan?"
+                    ></textarea>
+                    <label for="description">
+                      <span class="lang-sv"
+                        >Vad har du spelat/dansat i innan?</span
+                      >
+                      <span class="lang-en"
+                        >Where have you played/danced before?</span
+                      >
+                    </label>
+                  </div>
+                </div>
+                <div class="col-md-6 col-12">
+                  <h5 class="section-subheading mt-md-0 mt-3">
+                    <span class="lang-sv"
+                      >Vilka sektioner är du intresserade av?</span
+                    >
+                    <span class="lang-en"
+                      >Which section(s) are you interested in?</span
+                    >
+                  </h5>
+                  <div class="list-group list-group-flush mb-2" id="sections">
+                    <!-- Instruments are added via JS -->
+                  </div>
+                </div>
+              </div>
             </div>
             <div class="d-flex justify-content-start">
-              <button type="submit" class="btn btn-primary mr-3">Skicka</button>
               <button
                 type="button"
-                class="btn btn-secondary"
+                class="btn btn-secondary me-2 flex-grow-1"
                 data-bs-dismiss="modal"
               >
-                Avbryt
+                <span class="lang-sv">Avbryt</span>
+                <span class="lang-en">Cancel</span>
+              </button>
+              <button type="submit" class="btn btn-primary flex-grow-1">
+                <span class="lang-sv">Skicka</span>
+                <span class="lang-en">Submit</span>
               </button>
             </div>
           </form>
@@ -104,105 +146,180 @@
 
   <!-- Book form modal -->
   <div class="modal fade" id="bookFormModal" tabindex="-1" role="form">
-    <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
       <div class="modal-content">
         <div class="modal-header">
-          <h2 class="section-heading text-uppercase m-auto">Boka oss</h2>
+          <h2 class="section-heading text-uppercase no-margin">
+            <span class="lang-sv">Boka oss</span>
+            <span class="lang-en">Book us</span>
+          </h2>
+          <button
+            type="button"
+            class="btn-close"
+            data-bs-dismiss="modal"
+            aria-label="Stäng"
+          ></button>
         </div>
         <div class="modal-content p-4">
-          <h5 class="section-subheading text-muted">
-            Här kan du boka Bleckhornen eller göra en intresseförfrågan.
+          <h5 class="section-subheading text-muted mb-3">
+            <span class="lang-sv">
+              Här kan du boka Bleckhornen eller få en offert.
+            </span>
+            <span class="lang-en">
+              Here you can book Bleckhornen or get a quote.
+            </span>
           </h5>
-          <form id="bookForm">
-            <div class="form-group">
-              <input
-                type="text"
-                class="form-control"
-                name="date"
-                placeholder="Datum *"
-                required
-              />
-            </div>
-            <div class="form-group">
-              <input
-                type="text"
-                class="form-control"
-                name="time"
-                placeholder="Tid *"
-                required
-              />
-            </div>
-            <div class="form-group">
-              <input
-                type="text"
-                class="form-control"
-                name="location"
-                placeholder="Plats *"
-                required
-              />
-            </div>
-            <div class="form-group">
-              <input
-                type="text"
-                class="form-control"
-                name="event"
-                placeholder="Evenemang"
-              />
-            </div>
-            <div class="form-group">
-              <textarea
-                class="form-control"
-                name="otherInfo"
-                placeholder="Övrigt..."
-                rows="3"
-              ></textarea>
-            </div>
-
-            <h5 class="section-subheading text-muted">Kontaktuppgifter</h5>
-            <div class="form-group">
-              <input
-                type="text"
-                class="form-control"
-                name="name"
-                placeholder="Namn *"
-                required
-              />
-            </div>
-            <div class="form-group">
-              <input
-                type="email"
-                class="form-control"
-                name="email"
-                placeholder="E-mail *"
-                required
-              />
-            </div>
-            <div class="form-group">
-              <input
-                type="tel"
-                class="form-control"
-                name="phone"
-                placeholder="Telefonnummer"
-              />
-            </div>
-            <div class="form-group">
-              <input
-                type="text"
-                class="form-control"
-                name="address"
-                placeholder="Adress"
-              />
-            </div>
-
-            <div class="d-flex justify-content-start">
-              <button type="submit" class="btn btn-primary mr-3">Skicka</button>
-              <button
-                type="button"
-                class="btn btn-secondary"
-                data-bs-dismiss="modal"
-              >
-                Avbryt
-              </button>
+          <form class="container" id="bookForm">
+            <div class="row">
+              <div class="col-md-6">
+                <h5 class="section-subheading">
+                  <span class="lang-sv">Bokningsinfo</span>
+                  <span class="lang-en">Booking info</span>
+                </h5>
+                <div class="form-floating mb-2">
+                  <input
+                    type="text"
+                    class="form-control"
+                    name="date"
+                    id="bookDate"
+                    placeholder="Datum*"
+                    required
+                  />
+                  <label for="bookDate">
+                    <span class="lang-sv">Datum*</span>
+                    <span class="lang-en">Date*</span>
+                  </label>
+                </div>
+                <div class="form-floating mb-2">
+                  <input
+                    type="text"
+                    class="form-control"
+                    name="time"
+                    id="bookTime"
+                    placeholder="Tid*"
+                    required
+                  />
+                  <label for="bookTime">
+                    <span class="lang-sv">Tid*</span>
+                    <span class="lang-en">Time*</span>
+                  </label>
+                </div>
+                <div class="form-floating mb-2">
+                  <input
+                    type="text"
+                    class="form-control"
+                    name="location"
+                    id="bookLocation"
+                    placeholder="Plats*"
+                    required
+                  />
+                  <label for="bookLocation">
+                    <span class="lang-sv">Plats*</span>
+                    <span class="lang-en">Location*</span>
+                  </label>
+                </div>
+                <div class="form-floating mb-2">
+                  <input
+                    type="text"
+                    class="form-control"
+                    name="event"
+                    id="bookEvent"
+                    placeholder="Evenemang"
+                  />
+                  <label for="bookEvent">
+                    <span class="lang-sv">Evenemang</span>
+                    <span class="lang-en">Event</span>
+                  </label>
+                </div>
+                <div class="form-floating mb-2">
+                  <textarea
+                    class="form-control"
+                    style="height: 100px"
+                    name="otherInfo"
+                    id="bookOtherInfo"
+                    placeholder="Övrigt..."
+                  ></textarea>
+                  <label for="bookOtherInfo">
+                    <span class="lang-sv">Övrigt...</span>
+                    <span class="lang-en">Other info...</span>
+                  </label>
+                </div>
+              </div>
+              <div class="col-md-6">
+                <h5 class="section-subheading mt-md-0 mt-3">
+                  <span class="lang-sv">Kontaktuppgifter</span>
+                  <span class="lang-en">Contact info</span>
+                </h5>
+                <div class="form-floating mb-2">
+                  <input
+                    type="text"
+                    class="form-control"
+                    name="name"
+                    id="bookName"
+                    placeholder="Namn*"
+                    rows="3"
+                    required
+                  />
+                  <label for="bookName">
+                    <span class="lang-sv">Namn*</span>
+                    <span class="lang-en">Name*</span>
+                  </label>
+                </div>
+                <div class="form-floating mb-2">
+                  <input
+                    type="email"
+                    class="form-control"
+                    name="email"
+                    id="bookEmail"
+                    placeholder="E-mail*"
+                    required
+                  />
+                  <label for="bookEmail">
+                    <span class="lang-sv">E-mail*</span>
+                    <span class="lang-en">E-mail*</span>
+                  </label>
+                </div>
+                <div class="form-floating mb-2">
+                  <input
+                    type="tel"
+                    class="form-control"
+                    name="phone"
+                    id="bookPhone"
+                    placeholder="Telefonnummer"
+                  />
+                  <label for="bookPhone">
+                    <span class="lang-sv">Telefonnummer</span>
+                    <span class="lang-en">Phone number</span>
+                  </label>
+                </div>
+                <div class="form-floating mb-2">
+                  <input
+                    type="text"
+                    class="form-control"
+                    name="address"
+                    id="bookAddress"
+                    placeholder="Adress"
+                  />
+                  <label for="bookAddress">
+                    <span class="lang-sv">Adress</span>
+                    <span class="lang-en">Address</span>
+                  </label>
+                </div>
+                <div class="d-flex justify-content-end">
+                  <button
+                    type="button"
+                    class="btn btn-secondary me-2 flex-grow-1"
+                    data-bs-dismiss="modal"
+                  >
+                    <span class="lang-sv">Avbryt</span>
+                    <span class="lang-en">Cancel</span>
+                  </button>
+                  <button type="submit" class="btn btn-primary flex-grow-1">
+                    <span class="lang-sv">Skicka</span>
+                    <span class="lang-en">Submit</span>
+                  </button>
+                </div>
+              </div>
             </div>
           </form>
         </div>
@@ -214,18 +331,21 @@
     <!-- Navigation-->
     <nav class="navbar navbar-dark fixed-top" id="mainNav">
       <div class="container">
-        <a class="navbar-brand" href="#page-top"
-          ><img
-            src="assets/android-chrome-192x192.png"
-            width="50px"
-            alt="Bleckhornen"
+        <a class="navbar-brand" href="#"
+          ><img src="assets/logo-white.png" height="50px" alt="Bleckhornen"
         /></a>
-        <div class="d-flex justify-content-end">
-          <ul class="navbar-nav text-uppercase ms-auto">
-            <li class="nav-item">
-              <a class="nav-link" href="https://appendix.bleckhornen.org"
-                >Blindtarmen</a
-              >
+        <div class="d-flex flex-row justify-content-end">
+          <ul class="navbar-nav text-uppercase ms-auto d-flex flex-row">
+            <li class="nav-item mx-3">
+              <a class="nav-link" href="https://appendix.bleckhornen.org">
+                <span class="lang-sv">Blindtarmen</span>
+                <span class="lang-en">Appendix</span>
+              </a>
+            </li>
+            <div class="vr"></div>
+            <li class="nav-item mx-3">
+              <a class="nav-link lang-sv" onclick="setLang('en')">EN</a>
+              <a class="nav-link lang-en" onclick="setLang('sv')">SV</a>
             </li>
           </ul>
         </div>
@@ -236,85 +356,145 @@
     <header class="masthead mb-4">
       <div class="container">
         <div class="masthead-subheading">
-          Lunds bästa och äldsta studentorkester!
+          <span class="lang-sv">Lunds äldsta och bästa studentorkester!</span>
+          <span class="lang-en">Lund's oldest and best student orchestra!</span>
         </div>
         <div class="masthead-heading text-uppercase">
-          <div class="logo">BLECKHORNEN</div>
+          <div class="logo text-uppercase">Bleckhornen</div>
         </div>
         <div class="d-flex justify-content-around">
           <button
             type="button"
-            class="btn-lg btn-primary"
+            class="btn btn-lg btn-primary"
             data-bs-toggle="modal"
             data-bs-target="#joinFormModal"
           >
-            Gå med
+            <span class="lang-sv">Gå med!</span>
+            <span class="lang-en">Join us!</span>
           </button>
           <button
             type="button"
-            class="btn-lg btn-primary"
+            class="btn btn-lg btn-primary"
             data-bs-toggle="modal"
             data-bs-target="#bookFormModal"
           >
-            Boka oss
+            <span class="lang-sv">Boka oss!</span>
+            <span class="lang-en">Book us!</span>
           </button>
         </div>
       </div>
     </header>
 
     <!-- Public gigs-->
-    <a class="anchor" id="gigs"></a>
-    <section class="page-section mb-4">
-      <div class="container">
-        <div class="text-center">
-          <h2 class="section-heading text-uppercase">Spelningar</h2>
-          <h5 class="section-subheading text-muted">
-            Vi syns och hörs ofta ute bland folk. Här kan du se var vi spelar
-            härnäst!
-          </h5>
+    <div class="container">
+      <div class="row">
+        <div class="col-md-6 col-12">
+          <div class="container mb-4">
+            <h2
+              class="section-heading text-uppercase text-md-start text-center"
+            >
+              <span class="lang-sv">Vilka är vi?</span>
+              <span class="lang-en">Who are we?</span>
+            </h2>
+            <h5 class="section-subheading text-muted">
+              <span class="lang-sv">
+                Vi spelar på allt från gasquer till bröllop. Här kan du se vad
+                vi har gjort tidigare. Kanske kan du hitta något som passar dig?
+                Vi är alltid öppna för nya spelningar!
+                <br /><br />
+                Här kanske det står något om hur vi bildades och sådant. Eller
+                så kanske det står något om vad vi spelar för musik, eller vilka
+                evenemang vi brukar anordna. Lite smått och gott helt enkelt.
+              </span>
+              <span class="lang-en">
+                We play everything from gasques to weddings. Here you can see
+                what we have done before. Maybe you can find something that
+                suits you? We are always open to new gigs!
+                <br /><br />
+                Here maybe there is something about how we were formed and such.
+                Or maybe there is something about what kind of music we play, or
+                what events we usually organize. A little bit of everything.
+              </span>
+            </h5>
+          </div>
         </div>
-        <ul class="gig-list container justify-content-center" id="gig-list">
-          <!-- Gigs will be listed here -->
-        </ul>
+        <div class="col-md-6 col-12">
+          <a class="anchor" id="gigs"></a>
+          <section class="page-section mb-4">
+            <div class="container">
+              <div class="text-center">
+                <h2 class="section-heading text-uppercase">
+                  <span class="lang-sv">Allmänna spelningar</span>
+                  <span class="lang-en">Public gigs</span>
+                </h2>
+                <h5 class="section-subheading text-muted">
+                  <span class="lang-sv">
+                    Vi syns och hörs ofta runt om i Lund. Här kan du se var vi
+                    spelar härnäst!
+                  </span>
+                  <span class="lang-en">
+                    We are often seen and heard around Lund. Here you can see
+                    where we are playing next!
+                  </span>
+                </h5>
+              </div>
+              <ul
+                class="gig-list list-group container justify-content-center"
+                id="gig-list"
+              >
+                <!-- Gigs are fetched via JS -->
+              </ul>
+            </div>
+          </section>
+        </div>
       </div>
-    </section>
+    </div>
 
     <!-- Footer-->
     <footer class="footer py-4">
       <div class="container">
-        <div
-          class="row d-flex justify-content-md-between justify-content-center"
-        >
-          <div class="text-sm-left mb-3">
-            Copyright &copy; AMC Bleckhornen 2023<br />
-            S:t Annegatan 4A, 223 50 Lund<br />
-            <a
-              class="mail-link"
-              href="mailto:info@bleckhornen.org"
-              target="_blank"
-            >
-              info@bleckhornen.org
-            </a>
+        <div class="row">
+          <div class="col-md-6 col-12">
+            <div class="text-sm-left mb-3">
+              Copyright &copy; AMC Bleckhornen 2023<br />
+              S:t Annegatan 4A, 223 50 Lund<br />
+              <a
+                class="mail-link"
+                href="mailto:info@bleckhornen.org"
+                target="_blank"
+              >
+                info@bleckhornen.org
+              </a>
+            </div>
           </div>
-          <div>
-            <a
-              class="btn btn-dark btn-social mx-2"
-              href="https://www.facebook.com/amcbleckhornen"
-              target="_blank"
-              aria-label="Facebook"
-              ><i class="fab fa-facebook-f"></i
-            ></a>
-            <a
-              class="btn btn-dark btn-social mx-2"
-              href="https://www.instagram.com/amcbleckhornen/"
-              target="_blank"
-              aria-label="Instagram"
-              ><i class="fab fa-instagram"></i
-            ></a>
+          <div class="col-md-6 col-12">
+            <div class="d-flex justify-content-md-end justify-content-center">
+              <a
+                class="btn btn-dark btn-social mx-2"
+                href="https://www.facebook.com/amcbleckhornen"
+                target="_blank"
+                aria-label="Facebook"
+                ><i class="fab fa-facebook-f"></i
+              ></a>
+              <a
+                class="btn btn-dark btn-social mx-2"
+                href="https://www.instagram.com/amcbleckhornen/"
+                target="_blank"
+                aria-label="Instagram"
+                ><i class="fab fa-instagram"></i
+              ></a>
+            </div>
           </div>
         </div>
       </div>
     </footer>
+
+    <!-- JS scripts -->
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz"
+      crossorigin="anonymous"
+    ></script>
     <script src="script.js"></script>
   </body>
 </html>

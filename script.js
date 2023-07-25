@@ -1,3 +1,6 @@
+const getLang = () =>
+  new URLSearchParams(window.location.search).get("lang") || "sv";
+
 const fetchData = async () => {
   await Promise.all([fetchGigs(), fetchInstruments()]);
 };
@@ -59,23 +62,67 @@ const fetchGigs = async () => {
   }
 };
 
-const fetchInstruments = async () => {
-  const instrumentsUrl = `${BASE_API_URL}/instrument.getAll`;
-  const remove = ["Annat", "Dirigent"];
-  const instruments = await fetch(instrumentsUrl)
-    .then((res) => res.json())
-    .then((data) =>
-      data.result.data.json
-        .filter((instrument) => !remove.includes(instrument.name))
-        .sort((a, b) => a.name.localeCompare(b.name))
-    );
+const SECTIONS = {
+  sv: [
+    "Piccolo",
+    "Flöjt",
+    "Oboe",
+    "Klarinett",
+    "Fagott",
+    "Basklarinett",
+    "Sopransax",
+    "Altsax",
+    "Tenorsax",
+    "Barytonsax",
+    "Horn",
+    "Trumpet",
+    "Trombon",
+    "Eufonium",
+    "Tuba",
+    "Slagverk",
+    "Balett",
+  ],
+  en: [
+    "Piccolo",
+    "Flute",
+    "Oboe",
+    "Clarinet",
+    "Bassoon",
+    "Bass clarinet",
+    "Soprano sax",
+    "Alto sax",
+    "Tenor sax",
+    "Baritone sax",
+    "French horn",
+    "Trumpet",
+    "Trombone",
+    "Euphonium",
+    "Tuba",
+    "Percussion",
+    "Ballet",
+  ],
+};
 
-  const instrumentsElement = document.getElementById("joinSection");
-  for (const instrument of instruments) {
-    const instrumentElement = document.createElement("option");
-    instrumentElement.value = instrument.name;
-    instrumentElement.innerText = instrument.name;
-    instrumentsElement.appendChild(instrumentElement);
+const fetchInstruments = async () => {
+  const instrumentsElement = document.getElementById("sections");
+  for (const [index, instrument] of SECTIONS.sv.entries()) {
+    const label = document.createElement("label");
+    label.classList.add("list-group-item", "mb-0", "p-1");
+    const checkbox = document.createElement("input");
+    checkbox.classList.add("form-check-input", "me-1");
+    checkbox.type = "checkbox";
+    checkbox.name = "section" + instrument;
+    checkbox.value = "true";
+    checkbox.ariaLabel = instrument;
+    label.appendChild(checkbox);
+    const enInstrument = SECTIONS.en[index];
+    const lang = getLang();
+    label.innerHTML += `<span class="lang-sv${
+      lang !== "sv" ? " d-none" : ""
+    }">${instrument}</span><span class="lang-en${
+      lang !== "en" ? " d-none" : ""
+    }">${enInstrument}</span>`;
+    instrumentsElement.appendChild(label);
   }
 };
 
@@ -84,15 +131,27 @@ const handleJoinSubmit = async (event) => {
   event.preventDefault();
   const joinForm = event.currentTarget;
   const formData = new FormData(joinForm);
-  const data = {
-    ...Object.fromEntries(formData.entries()),
-    emailTo: "info@bleckhornen.org",
+
+  let data = {
+    emailTo: "hannes.ryberg00@gmail.com",
   };
+  for (const [key, value] of formData.entries()) {
+    if (key.startsWith("section") && value === "true") {
+      if (data["sections"] === undefined) {
+        data["sections"] = [];
+      }
+      data["sections"].push(key.replace("section", ""));
+    } else {
+      data[key] = value;
+    }
+  }
+
   const payload = {
     0: {
       json: data,
     },
   };
+
   await fetch(apiUrl, {
     method: "POST",
     body: JSON.stringify(payload),
@@ -102,7 +161,11 @@ const handleJoinSubmit = async (event) => {
       if (data.error) {
         throw new Error(data.error.message);
       }
-      joinForm.innerHTML = `<p class="text-success">Tack för din ansökan! Vi återkommer så snart vi kan!</p>`;
+      if (getLang() === "en") {
+        joinForm.innerHTML = `<p class="text-success">Thank you for your application! We will get back to you as soon as possible!</p>`;
+      } else {
+        joinForm.innerHTML = `<p class="text-success">Tack för din ansökan! Vi återkommer så snart vi kan!</p>`;
+      }
     });
 };
 const joinForm = document.getElementById("joinForm");
@@ -131,8 +194,52 @@ const handleBookSubmit = async (event) => {
       if (data.error) {
         throw new Error(data.error.message);
       }
-      bookForm.innerHTML = `<p class="text-success">Tack för din bokningsförfrågan! Vi återkommer så snart vi kan!</p>`;
+      if (getLang() === "en") {
+        bookForm.innerHTML = `<p class="text-success">Thank you for your booking request! We will get back to you as soon as possible!</p>`;
+      } else {
+        bookForm.innerHTML = `<p class="text-success">Tack för din bokningsförfrågan! Vi återkommer så snart vi kan!</p>`;
+      }
     });
 };
 const bookForm = document.getElementById("bookForm");
 bookForm.addEventListener("submit", handleBookSubmit);
+
+const LANGUAGES = ["sv", "en"];
+
+const disableLanguage = (language) => {
+  const langElements = document.querySelectorAll(`.lang-${language}`);
+  for (const element of langElements) {
+    element.classList.add("d-none");
+  }
+};
+
+const enableLanguage = (language) => {
+  const langElements = document.querySelectorAll(`.lang-${language}`);
+  for (const element of langElements) {
+    element.classList.remove("d-none");
+  }
+};
+
+const setLang = (language) => {
+  if (LANGUAGES.includes(language)) {
+    if (language === "sv") {
+      window.history.pushState({}, "", window.location.pathname);
+    } else {
+      window.history.pushState({}, "", `?lang=${language}`);
+    }
+  }
+  for (const lang of LANGUAGES) {
+    if (lang === language) {
+      enableLanguage(lang);
+    } else {
+      disableLanguage(lang);
+    }
+  }
+};
+
+const lang = getLang();
+if (lang && LANGUAGES.includes(lang)) {
+  setLang(lang);
+} else {
+  setLang("sv");
+}
