@@ -6,6 +6,47 @@ const fetchData = async () => {
 };
 
 const BASE_API_URL = "https://appendix.bleckhornen.org/api/trpc";
+const LANGUAGES = ["sv", "en"];
+const SECTIONS = {
+  sv: [
+    "Piccolo",
+    "Flöjt",
+    "Oboe",
+    "Klarinett",
+    "Fagott",
+    "Basklarinett",
+    "Sopransax",
+    "Altsax",
+    "Tenorsax",
+    "Barytonsax",
+    "Horn",
+    "Trumpet",
+    "Trombon",
+    "Eufonium",
+    "Tuba",
+    "Slagverk",
+    "Balett",
+  ],
+  en: [
+    "Piccolo",
+    "Flute",
+    "Oboe",
+    "Clarinet",
+    "Bassoon",
+    "Bass clarinet",
+    "Soprano sax",
+    "Alto sax",
+    "Tenor sax",
+    "Baritone sax",
+    "French horn",
+    "Trumpet",
+    "Trombone",
+    "Euphonium",
+    "Tuba",
+    "Percussion",
+    "Ballet",
+  ],
+};
 
 const fetchGigs = async () => {
   const gigUrlTemplate = `${BASE_API_URL}/gig.getMany?input=%7B%22json%22%3A%7B%22startDate%22%3A%22<DATEGOESHERE>T00%3A00%3A00.000Z%22%7D%2C%22meta%22%3A%7B%22values%22%3A%7B%22startDate%22%3A%5B%22Date%22%5D%7D%7D%7D`;
@@ -56,51 +97,15 @@ const fetchGigs = async () => {
 
   if (gigs.length === 0) {
     const noGigsElement = document.createElement("i");
-    noGigsElement.innerHTML =
-      "Vi har tyvärr inga allmänna spelningar inplanerade för tillfället. Håll utkik här eller på vår Facebooksida för att se när vi spelar nästa gång!";
+    gigListElement.classList.add("text-center");
+    const lang = getLang();
+    noGigsElement.innerHTML += `<span class="lang-sv${
+      lang !== "sv" ? " d-none" : ""
+    }">Tyvärr har vi inga allmänna spelningar inplanerade för tillfället.</span><span class="lang-en${
+      lang !== "en" ? " d-none" : ""
+    }">Unfortunately we have no public gigs planned at the moment.</span>`;
     gigListElement.appendChild(noGigsElement);
   }
-};
-
-const SECTIONS = {
-  sv: [
-    "Piccolo",
-    "Flöjt",
-    "Oboe",
-    "Klarinett",
-    "Fagott",
-    "Basklarinett",
-    "Sopransax",
-    "Altsax",
-    "Tenorsax",
-    "Barytonsax",
-    "Horn",
-    "Trumpet",
-    "Trombon",
-    "Eufonium",
-    "Tuba",
-    "Slagverk",
-    "Balett",
-  ],
-  en: [
-    "Piccolo",
-    "Flute",
-    "Oboe",
-    "Clarinet",
-    "Bassoon",
-    "Bass clarinet",
-    "Soprano sax",
-    "Alto sax",
-    "Tenor sax",
-    "Baritone sax",
-    "French horn",
-    "Trumpet",
-    "Trombone",
-    "Euphonium",
-    "Tuba",
-    "Percussion",
-    "Ballet",
-  ],
 };
 
 const fetchInstruments = async () => {
@@ -132,9 +137,7 @@ const handleJoinSubmit = async (event) => {
   const joinForm = event.currentTarget;
   const formData = new FormData(joinForm);
 
-  let data = {
-    emailTo: "hannes.ryberg00@gmail.com",
-  };
+  let data = {};
   for (const [key, value] of formData.entries()) {
     if (key.startsWith("section") && value === "true") {
       if (data["sections"] === undefined) {
@@ -203,8 +206,6 @@ const handleBookSubmit = async (event) => {
 };
 const bookForm = document.getElementById("bookForm");
 bookForm.addEventListener("submit", handleBookSubmit);
-
-const LANGUAGES = ["sv", "en"];
 
 const disableLanguage = (language) => {
   const langElements = document.querySelectorAll(`.lang-${language}`);

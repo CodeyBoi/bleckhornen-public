@@ -118,6 +118,9 @@ header.masthead .masthead-heading {
   #footer {
     flex-direction: row;
   }
+  #sections {
+    max-height: 340px;
+  }
 }
 
 .gig-list p {
@@ -191,7 +194,6 @@ h3 {
 
 #sections {
   overflow-y: auto;
-  max-height: 240px;
   user-select: none;
 }
 
