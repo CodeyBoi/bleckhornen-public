@@ -72,25 +72,26 @@ const fetchGigs = async () => {
     const gigTime = gig.start.replace(".", ":");
     const gigLocation = gig.location;
     const gigTitle = gig.title;
+    const gigDescription = gig.publicDescription;
 
-    const gigDateElement = document.createElement("p");
-    gigDateElement.classList.add("gig-date");
-    gigDateElement.innerText = `${gigYear}.${gigMonth}.${gigDay} ${gigTime}`;
+    const gigInfoElement = document.createElement("p");
+    gigInfoElement.classList.add("gig-info");
+    gigInfoElement.innerText = `${gigYear}.${gigMonth}.${gigDay} ${gigTime}, ${gigLocation}`;
 
     const gigTitleElement = document.createElement("h3");
     gigTitleElement.classList.add("gig-title");
     gigTitleElement.innerText = gigTitle;
 
-    const gigLocationElement = document.createElement("p");
-    gigLocationElement.classList.add("gig-location");
-    gigLocationElement.innerText = "Plats: " + gigLocation;
+    const gigDescriptionElement = document.createElement("p");
+    gigDescriptionElement.classList.add("gig-description");
+    gigDescriptionElement.innerText = gigDescription;
 
     const gigElement = document.createElement("li");
     gigElement.classList.add("gig", "list-group-item");
-    gigElement.appendChild(gigDateElement);
+    gigElement.appendChild(gigInfoElement);
     gigElement.appendChild(gigTitleElement);
     if (gigLocation) {
-      gigElement.appendChild(gigLocationElement);
+      gigElement.appendChild(gigDescriptionElement);
     }
     gigListElement.appendChild(gigElement);
   }
