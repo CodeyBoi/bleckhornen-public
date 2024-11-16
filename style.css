@@ -206,6 +206,15 @@ h3 {
   flex-direction: column;
 }
 
+.polka {
+  background-image: 
+    radial-gradient(rgb(255, 255, 255) 20.4%, transparent 21.6%),
+    radial-gradient(rgb(255, 255, 255) 20.4%, transparent 21.6%);
+  background-position: 0px 0px, 60px 60px;
+  background-size: 120px 120px;
+  background-color: rgb(206, 12, 0);
+}
+
 /* * {
     border: 1px solid red;
 } */
