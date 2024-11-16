@@ -9,7 +9,7 @@ const BASE_API_URL = "https://appendix.bleckhornen.org/api/trpc";
 const LANGUAGES = ["sv", "en"];
 const SECTIONS = {
   sv: [
-    "Piccolo",
+    "Piccola",
     "Flöjt",
     "Oboe",
     "Klarinett",

@@ -60,9 +60,13 @@
               <div class="row">
                 <div class="col-md-6 col-12">
                   <h5 class="section-subheading">
-                    <span class="lang-sv">Berätta lite om dig själv</span>
-                    <span class="lang-en">Tell us a bit about yourself</span>
+                    <span class="lang-sv">Berätta lite om dig själv!</span>
+                    <span class="lang-en">Tell us a bit about yourself!</span>
                   </h5>
+                  <small class="text-muted">
+                    <span class="lang-sv">* Anger obligatorisk uppgift</span>
+                    <span class="lang-en">* Indicates required question</span>
+                  </small>
                   <div class="form-floating mb-2">
                     <input
                       type="text"
@@ -87,8 +91,8 @@
                       required
                     />
                     <label for="email">
-                      <span class="lang-sv">E-mail*</span>
-                      <span class="lang-en">E-mail*</span>
+                      <span class="lang-sv">E-postadress*</span>
+                      <span class="lang-en">E-mail Address*</span>
                     </label>
                   </div>
                   <div class="form-floating mb-2">
@@ -97,14 +101,14 @@
                       style="height: 200px"
                       id="description"
                       name="description"
-                      placeholder="Vad har du spelat/dansat i innan?"
+                      placeholder="I vilka sammanhang har du spelat/dansat förut?"
                     ></textarea>
                     <label for="description">
-                      <span class="lang-sv"
-                        >Vad har du spelat/dansat i innan?</span
+                      <span class="lang-sv" style="font-size: 14px"
+                        >I vilka sammanhang har du spelat/dansat förut?</span
                       >
-                      <span class="lang-en"
-                        >Where have you played/danced before?</span
+                      <span class="lang-en" style="font-size: 14px"
+                        >In what contexts have you played/danced before?</span
                       >
                     </label>
                   </div>
@@ -112,7 +116,7 @@
                 <div class="col-md-6 col-12">
                   <h5 class="section-subheading mt-md-0 mt-3">
                     <span class="lang-sv"
-                      >Vilka sektioner är du intresserade av?</span
+                      >Vilka sektioner är du intresserad av?</span
                     >
                     <span class="lang-en"
                       >Which section(s) are you interested in?</span
@@ -161,21 +165,27 @@
           ></button>
         </div>
         <div class="modal-content p-4">
-          <h5 class="section-subheading text-muted mb-3">
+          <h5 class="section-subheading text-muted mb-3 mx-2">
             <span class="lang-sv">
-              Här kan du boka Bleckhornen eller få en offert.
+              Vad kul att du är intresserad av att Bleckhornen uppträder på din
+              tillställning! Fyll i formuläret nedan för att få en offert.
             </span>
             <span class="lang-en">
-              Here you can book Bleckhornen or get a quote.
+              How fun that you are interested in Bleckhornen performing at your
+              event! Fill out the form below to get an offer.
             </span>
           </h5>
           <form class="container" id="bookForm">
             <div class="row">
               <div class="col-md-6">
                 <h5 class="section-subheading">
-                  <span class="lang-sv">Bokningsinfo</span>
-                  <span class="lang-en">Booking info</span>
+                  <span class="lang-sv">Bokningsinformation</span>
+                  <span class="lang-en">Booking Information</span>
                 </h5>
+                <small class="text-muted">
+                  <span class="lang-sv">* Anger obligatorisk uppgift</span>
+                  <span class="lang-en">* Indicates required question</span>
+                </small>
                 <div class="form-floating mb-2">
                   <input
                     type="text"
@@ -227,8 +237,8 @@
                     placeholder="Evenemang"
                   />
                   <label for="bookEvent">
-                    <span class="lang-sv">Evenemang</span>
-                    <span class="lang-en">Event</span>
+                    <span class="lang-sv">Typ av tillställning</span>
+                    <span class="lang-en">Event Type</span>
                   </label>
                 </div>
                 <div class="form-floating mb-2">
@@ -241,15 +251,19 @@
                   ></textarea>
                   <label for="bookOtherInfo">
                     <span class="lang-sv">Övrigt...</span>
-                    <span class="lang-en">Other info...</span>
+                    <span class="lang-en">Other...</span>
                   </label>
                 </div>
               </div>
               <div class="col-md-6">
                 <h5 class="section-subheading mt-md-0 mt-3">
                   <span class="lang-sv">Kontaktuppgifter</span>
-                  <span class="lang-en">Contact info</span>
+                  <span class="lang-en">Contact Information</span>
                 </h5>
+                <small class="text-muted">
+                  <span class="lang-sv">* Anger obligatorisk uppgift</span>
+                  <span class="lang-en">* Indicates required question</span>
+                </small>
                 <div class="form-floating mb-2">
                   <input
                     type="text"
@@ -275,8 +289,8 @@
                     required
                   />
                   <label for="bookEmail">
-                    <span class="lang-sv">E-mail*</span>
-                    <span class="lang-en">E-mail*</span>
+                    <span class="lang-sv">E-postadress*</span>
+                    <span class="lang-en">E-mail Address*</span>
                   </label>
                 </div>
                 <div class="form-floating mb-2">
@@ -289,7 +303,7 @@
                   />
                   <label for="bookPhone">
                     <span class="lang-sv">Telefonnummer</span>
-                    <span class="lang-en">Phone number</span>
+                    <span class="lang-en">Phone Number</span>
                   </label>
                 </div>
                 <div class="form-floating mb-2">
@@ -394,24 +408,24 @@
               class="section-heading text-uppercase text-md-start text-center"
             >
               <span class="lang-sv">Vilka är vi?</span>
-              <span class="lang-en">Who are we?</span>
+              <span class="lang-en">Who Are We?</span>
             </h2>
             <h5 class="section-subheading text-muted">
               <span class="lang-sv">
-                Det är vi som är Academimusiccorpset Bleckhornen – Lunds äldsta
+                Det är vi som är AcademiMusicCorpset Bleckhornen – Lunds äldsta
                 och bästa studentorkester. Sedan 1956 har vi förgyllt Lunds
                 gator, torg, baler, sittningar, och idrottsevenemang med festlig
-                blåsmusik. Vår repertoar - som består av allt från Mozart till
-                Rihanna - är en garanterad stämningshöjare i alla sammanhang. Så
-                vad väntar du på? Boka vårat gäng redan idag!
+                blåsmusik och dans. Vår repertoar, som består av allt från Mozart
+                till Rihanna, är en garanterad stämningshöjare i alla sammanhang.
+                Så vad väntar du på? Boka vårat gäng redan idag!
               </span>
               <span class="lang-en">
-                We are Academimusiccorpset Bleckhornen – Lunds oldest and best
-                student orchestra. Since 1956, we have enriched Lunds streets,
-                squares, balls, dinner-partys and sports-events with upbeat wind
-                music. Our repertoire - consisting of everything from Mozart to
-                Rihanna - is sure to get the party started. So what are you
-                waiting for? Book our crew today!
+                We are AcademiMusicCorpset Bleckhornen – Lund's oldest and best
+                student orchestra. Since 1956 we have enriched Lund's streets,
+                squares, balls, dinner parties and sports events with upbeat wind
+                music and dance. Our repertoire, consisting of everything from
+                Mozart to Rihanna, is sure to get the party started. So what are
+                you waiting for? Book us today!
               </span>
             </h5>
           </div>
@@ -423,16 +437,16 @@
               <div class="text-center">
                 <h2 class="section-heading text-uppercase">
                   <span class="lang-sv">Allmänna spelningar</span>
-                  <span class="lang-en">Public gigs</span>
+                  <span class="lang-en">Public Gigs</span>
                 </h2>
                 <h5 class="section-subheading text-muted">
                   <span class="lang-sv">
                     Vi syns och hörs ofta runt om i Lund. Här kan du se var vi
-                    spelar härnäst!
+                    spelar näst!
                   </span>
                   <span class="lang-en">
                     We are often seen and heard around Lund. Here you can see
-                    where we are playing next!
+                    where we play next!
                   </span>
                 </h5>
               </div>
@@ -454,7 +468,12 @@
         <div class="row">
           <div class="col-md-6 col-12">
             <div class="text-sm-left mb-3">
-              Knackad av #516<br />
+              <span class="lang-sv">
+                Knackad av #516<br />
+              </span>
+              <span class="lang-en">
+                Made by #516<br />
+              </span>
               Sankt Annegatan 4A, 223 50 Lund<br />
               <a
                 class="mail-link"
