@@ -53,7 +53,7 @@ const fetchGigs = async () => {
   const now = new Date();
   const gigUrl = gigUrlTemplate.replace(
     "<DATEGOESHERE>",
-    now.toISOString().split("T")[0]
+    now.toISOString().split("T")[0],
   );
   const gigs = await fetch(gigUrl)
     .then((res) => res.json())
@@ -76,7 +76,7 @@ const fetchGigs = async () => {
 
     const gigInfoElement = document.createElement("p");
     gigInfoElement.classList.add("gig-info");
-    gigInfoElement.innerText = `${gigYear}.${gigMonth}.${gigDay}${gigTime ? ' ' + gigTime : ''}, ${gigLocation}`;
+    gigInfoElement.innerText = `${gigYear}.${gigMonth}.${gigDay}${gigTime ? " " + gigTime : ""}, ${gigLocation}`;
 
     const gigTitleElement = document.createElement("h3");
     gigTitleElement.classList.add("gig-title");
@@ -163,8 +163,13 @@ const handleJoinSubmit = async (event) => {
   })
     .then((res) => res.json())
     .then((data) => {
-      if (data.error) {
-        throw new Error(data.error.message);
+      const res = data[0].result.data.json;
+      if (!res.success) {
+        joinForm.innerHTML =
+          getLang() === "en"
+            ? `<p class="text-danger">Application failed. We think you are a bot. :(</p>`
+            : `<p class="text-danger">Ansökan misslyckades. Vi tror att du är en bot. :(</p>`;
+        return;
       }
       if (getLang() === "en") {
         joinForm.innerHTML = `<p class="text-success">Thank you for your application! We will get back to you as soon as possible!</p>`;
@@ -184,6 +189,8 @@ const handleBookSubmit = async (event) => {
   const data = {
     ...Object.fromEntries(formData.entries()),
     emailTo: "styrelsen@bleckhornen.org",
+    bookFormHonung: undefined,
+    honung: formData.get("bookFormHonung") ?? undefined,
   };
   const payload = {
     0: {
@@ -196,8 +203,13 @@ const handleBookSubmit = async (event) => {
   })
     .then((res) => res.json())
     .then((data) => {
-      if (data.error) {
-        throw new Error(data.error.message);
+      const res = data[0].result.data.json;
+      if (!res.success) {
+        bookForm.innerHTML =
+          getLang() === "en"
+            ? `<p class="text-danger">Booking request failed. We think you are a bot. :(</p>`
+            : `<p class="text-danger">Bokningsförfrågan misslyckades. Vi tror att du är en bot. :(</p>`;
+        return;
       }
       if (getLang() === "en") {
         bookForm.innerHTML = `<p class="text-success">Thank you for your booking request! We will get back to you as soon as possible!</p>`;
