@@ -68,6 +68,10 @@ footer {
   color: white;
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
 header.masthead {
   background-color: var(--corps-red);
   padding-top: 6.5rem;
